@@ -26,7 +26,7 @@ set encoding=UTF-8
 filetype plugin indent on  "Enabling Plugin & Indent
 syntax on  "Turning Syntax on
 set autoread wildmode=longest,list,full
-set spell spelllang=en_us
+set spell spelllang=en_us,th
 set backspace=indent,eol,start confirm
 set shiftwidth=4 autoindent smartindent tabstop=4 softtabstop=4 expandtab  
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -55,7 +55,6 @@ nnoremap <leader><Space> :CtrlP<CR>
 nnoremap <leader><ENTER> :Goyo<CR>
 nnoremap <leader>, :vsplit ~/.config/nvim/init.vim<CR>
 nnoremap <leader>g :GitGutterDisable <BAR> :set laststatus=0 <CR>
-nnoremap <C-g> :set spelllang=de_de<CR>
 nnoremap <C-l> :set background=light<CR>
 nnoremap <C-s> :source ~/.config/nvim/init.vim<CR>
 
