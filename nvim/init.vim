@@ -7,8 +7,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'junegunn/goyo.vim'
     Plug 'vifm/vifm.vim'
     Plug 'junegunn/limelight.vim'
-    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"    Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'ycm-core/YouCompleteMe'
 " Syntax
     Plug 'tpope/vim-markdown'
     Plug 'ap/vim-css-color' "Displays a preview of colors with CSS 
@@ -19,8 +20,10 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'NLKNguyen/papercolor-theme'
     Plug 'ajh17/Spacegray.vim'
     Plug 'chriskempson/base16-vim'
+    Plug 'zxqfl/tabnine-vim'
 call plug#end() 
- 
+
+
 "General Settings
 set encoding=UTF-8
 filetype plugin indent on  "Enabling Plugin & Indent
@@ -35,6 +38,7 @@ set laststatus=2 cmdheight=1
 au BufRead,BufNewFile *.fountain set filetype=fountain
 set splitbelow splitright 
 set nobackup nowritebackup
+set nu
 
 "Status-line
 set statusline=
@@ -50,6 +54,7 @@ set statusline+=\ [%c]
 
 "Key-bindings
 let mapleader=" "
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
 nnoremap <leader>n :Explore<CR>
 nnoremap <leader><Space> :CtrlP<CR>
 nnoremap <leader><ENTER> :Goyo<CR>
@@ -73,6 +78,8 @@ nnoremap <leader>j <C-W>j
 nnoremap <leader>k <C-W>k
 nnoremap <leader>l <C-W>l
 
+
+
 map <F1> :colorscheme gruvbox<CR>
 map <F2> :colorscheme base16-default-dark<CR>
 map <F3> :colorscheme hybrid_reverse<CR>
@@ -90,6 +97,12 @@ let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
 let g:limelight_conceal_guifg = 'DarkGray'
 let g:limelight_conceal_guifg = '#777777'
+
+" YCM
+let g:SimpylFold_docstring_preview = 1
+"autocomplete
+let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_key_list_stop_completion = [ '<C-y>', '<Enter>' ]
 
 "Goyo settings
 function! s:goyo_enter()
@@ -111,7 +124,4 @@ endfunction
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave() 
 
-"||\\ //||
-"|| \// || Mackenzie Criswell
-"|| //\ || https://makc.co
-"||   \\|| https://github.com/makccr
+
